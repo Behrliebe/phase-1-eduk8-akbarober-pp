@@ -1,5 +1,6 @@
 "use strict";
 const { Model } = require("sequelize");
+const hashPassword = require("../helper/helper");
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -9,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       User.hasOne(models.UserProfile, { foreignKey: "UserId" });
-      User.hasMany(models.CourseUser, { foreignKey: "UserId" });
+      User.belongsToMany(models.Course, { through: models.CourseUser });
       User.belongsToMany(models.Material, { through: models.MaterialUser });
     }
   }
@@ -18,6 +19,9 @@ module.exports = (sequelize, DataTypes) => {
       email: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: {
+          msg: "Email has already been used!",
+        },
         validate: {
           notNull: {
             msg: "Email is required!",
@@ -40,6 +44,11 @@ module.exports = (sequelize, DataTypes) => {
           notEmpty: {
             msg: "First Name is required!",
           },
+          isEnoughLength(value) {
+            if (value.length < 9) {
+              throw new Error("Password must be at least 8 characters");
+            }
+          },
         },
       },
       role: {
@@ -60,5 +69,9 @@ module.exports = (sequelize, DataTypes) => {
       modelName: "User",
     },
   );
+
+  User.beforeCreate((x) => {
+    x.password = hashPassword(x.password);
+  });
   return User;
 };

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - eduK8</title>
+  </head>
+  <body>
+    <a href="/logout">Logout</a>
+    <h1>Our Courses</h1>
+    <a href="/<%= userRole %>/profile">
+      <input type="button" value="Profile" />
+    </a>
+    <table border="1">
+      <tr>
+        <th>No</th>
+        <th>Course Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Detail</th>
+      </tr>
+      <% courses.forEach((el, i) => { %>
+       <tr>
+        <td><%= i + 1 %></td>
+        <td><%= el.name %></td>
+        <td><%= el.description %></td>
+        <td><%= el.price %></td>
+        <td><a href="/course/<%= el.id %>">
+            <input type="button" value="See Detail">
+        </a></td>
+       </tr>
+      <% }) %>
+    </table>
+  </body>
+</html>

@@ -10,6 +10,10 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       UserProfile.belongsTo(models.User, { foreignKey: "UserId" });
     }
+
+    get formatDate() {
+      return this.birthDate.toISOString().split("T")[0];
+    }
   }
   UserProfile.init(
     {

@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Course.hasMany(models.Material, { foreignKey: "CourseId" });
-      Course.hasMany(models.CourseUser, { foreignKey: "CourseId" });
+      Course.belongsToMany(models.User, { through: models.CourseUser });
     }
   }
   Course.init(
@@ -48,5 +48,9 @@ module.exports = (sequelize, DataTypes) => {
       modelName: "Course",
     },
   );
+
+  Course.beforeCreate((x) => {
+    x.code = `${x.category.slice(0, 2).toUpperCase()}-${new Date().getTime()}-${x.name.slice(0, 3).toUpperCase()}`;
+  });
   return Course;
 };

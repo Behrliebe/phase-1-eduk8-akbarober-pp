@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Course Detail - eduK8</title>
+  </head>
+  <body>
+    <h2><%= course.name %> - Course</h2>
+    <h4><%= course.code %></h4>
+    <center>
+        <h2>Materials</h2>
+        <table border="1">
+          <tr>
+            <th>No</th>
+            <th>Name</th>
+            <th>File URL</th>
+            <th>Action</th>
+          </tr>
+          <% course.Materials.forEach((el, i) => { %>
+           <tr>
+            <td><%= i + 1 %></td>
+            <td><%= el.name %></td>
+            <td><a href="<%= el.fileUrl %>"><%= el.fileUrl %></a></td>
+            <td><% if (role === "Student") { %>
+             <a href="/course/<%= course.id %>/material/<%= el.id %>/finished">
+              <input type="button" value="Finished">
+             </a>
+            <% } else { %>
+              <a href="/course/<%= course.id %>/material/<%= el.id %>/delete">
+                <input type="button" value="Delete">
+              </a>
+            <% } %></td>
+           </tr>
+          <% }) %>
+        </table>
+    </center>
+  </body>
+</html>

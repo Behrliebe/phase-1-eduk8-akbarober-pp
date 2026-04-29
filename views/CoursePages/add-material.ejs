@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Material - eduK8</title>
+  </head>
+  <body>
+    <h1>Add New Material</h1>
+    <form action="/course/<%= courseId %>/material/add" method="post">
+      <p>
+        <label>Material Name</label>
+        <input type="text" name="name" />
+      </p>
+      <p>
+        <label>File URL</label>
+        <input type="text" name="fileUrl" />
+      </p>
+      <input type="submit" value="Add New Material" />
+    </form>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>eduK8 - Log In</title>
+  </head>
+  <body>
+    <h1>Register</h1>
+    <form action="/auth/register" method="post">
+      <div style="display: flex">
+        <div>
+          <label>First Name</label>
+          <input type="text" name="firstName" />
+        </div>
+        <div>
+          <label>Last Name</label>
+          <input type="text" name="lastName" />
+        </div>
+      </div>
+      <p>
+        <label>Date of Birth</label>
+        <input type="date" name="birthDate" />
+      </p>
+      <p>
+        <label>Phone Number</label>
+        <input type="text" name="phoneNumber" placeholder="(optional)" />
+      </p>
+      <p>
+        <label>E-mail</label>
+        <input type="text" name="email" />
+      </p>
+      <p>
+        <label>Password</label>
+        <input type="password" name="password" />
+      </p>
+      <p>
+        <select name="role">
+          <option selected disabled>Please choose a role</option>
+          <option value="Student">Student</option>
+          <option value="Mentor">Mentor</option>
+        </select>
+      </p>
+      <input type="submit" value="Login" />
+    </form>
+  </body>
+</html>

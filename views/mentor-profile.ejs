@@ -3,37 +3,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Student Profile - eduK8</title>
+    <title>Mentor Profile - eduK8</title>
   </head>
   <body>
-    <h1>Student Profile</h1>
-    <form action="/student/profile/" method="post">
+    <h1>Mentor Profile</h1>
+    <form action="/student/profile/<%= mentor.id %>" method="post">
       <p>
         <label for="inpFirstName">First Name</label>
         <input
           type="text"
           name="firstName"
           id="inpFirstName"
-          value="<%= student.firstName %>"
+          value="<%= mentor.firstName %>"
         />
         <label for="inpLastName">Last Name</label>
         <input
           type="text"
           name="lastName"
           id="inpLastName"
-          value="<%= student.lastName %>"
+          value="<%= mentor.lastName %>"
         />
       </p>
       <p>
         <label>Date of Birth</label>
-        <input type="date" name="birthDate" value="<%= student.formatDate %>" />
+        <input type="date" name="birthDate" value="<%= mentor.formatDate %>" />
       </p>
       <p>
         <label>Phone Number</label>
         <input
           type="text"
           name="phoneNumber"
-          value="<%= student.phoneNumber %>"
+          value="<%= mentor.phoneNumber %>"
         />
       </p>
       <input type="submit" value="Save Changes" />
