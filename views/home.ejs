@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <h1>Courses</h1>
+    <style>
+      .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+        width: 40%;
+      }
+
+      .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+      }
+
+      /* Wrapper untuk gambar + p sejajar */
+      .image-row {
+        display: flex;
+        align-items: center;
+      }
+
+      .image-row img {
+        width: 50%;
+        object-fit: cover;
+      }
+
+      .image-row p {
+        padding: 0 16px;
+        margin: 0;
+      }
+
+      .container {
+        padding: 2px 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="/" method="get">
+        <input type="text" name="search" value="<%= search %>">   
+    </form>
+    <% course.forEach(el => { %>
+     <div class="card">
+      <!-- Gambar & p dibungkus .image-row -->
+      <div class="image-row">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/id/e/e0/Iron_Man_bleeding_edge.jpg"
+          alt="Avatar"
+        />
+        <p><%= el.description %> </p>
+      </div>
+
+      <!-- John Doe tetap di bawah -->
+      <div class="container">
+        <h4><b> <%= el.name %></b></h4>
+        <p><%= el.category  %></p>
+      </div>
+    </div>
+    <% }) %>
+    
+  </body>
+</html>

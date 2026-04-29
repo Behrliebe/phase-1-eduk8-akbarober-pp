@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add User</title>
+</head>
+<body>
+    <center><h1>Add New User</h1></center><br>
+    <center>
+        <form action="/admin/addUser" method="POST">
+            <table border="1" cellpadding="8">
+                <tr>
+                    <td>First Name</td>
+                    <td><input type="text" name="firstName" required></td>
+                </tr>
+                <tr>
+                    <td>Last Name</td>
+                    <td><input type="text" name="lastName" required></td>
+                </tr>
+                <tr>
+                    <td>Birth Date</td>
+                    <td><input type="date" name="birthDate" required></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td><input type="email" name="email" required></td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td><input type="password" name="password" required></td>
+                </tr>
+                <tr>
+                    <td>Role</td>
+                    <td>
+                        <select name="role">
+                            <option value="admin">lecture</option>
+                            <option value="student">Student</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button type="submit">Add User</button></td>
+                </tr>
+            </table>
+        </form>
+        <br>
+        <a href="/admin">← Back to Admin Page</a>
+    </center>
+</body>
+</html>

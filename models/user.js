@@ -60,12 +60,12 @@ module.exports = (sequelize, DataTypes) => {
       sequelize,
       modelName: "User",
     },
-    User.beforeCreate(async(instance, options) => {
-        const salt = bcrypt.genSaltSync(8)
-        const hash = bcrypt.hashSync(instance.password, salt)
+    // User.beforeCreate(async(instance, options) => {
+    //     const salt = bcrypt.genSaltSync(8)
+    //     const hash = bcrypt.hashSync(instance.password, salt)
 
-        instance.password = hash
-    }),  
+    //     instance.password = hash
+    // }),
   );
   return User;
 };
