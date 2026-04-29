@@ -7,10 +7,7 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(models) {
-      MaterialUser.belongsToMany(models.Material, { foreignKey: "MaterialId" });
-      MaterialUser.belongsToMany(models.User, { foreignKey: "UserId" });
-    }
+    static associate(models) {}
   }
   MaterialUser.init(
     {
