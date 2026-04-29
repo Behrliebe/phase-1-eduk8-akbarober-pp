@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+</head>
+<body>
+    <center><h1>Admin Page</h1></center><br>
+    <center>
+        <a href="/admin/addUser"><button>+ Add New User</button></a>
+    </center><br>
+    <center>
+        <table border="1">
+            <tr>
+                <th>no</th>
+                <th>name</th>
+                <th>email</th>
+                <th>role</th>
+                <th>action</th>
+            </tr>
+            <% data.forEach((el, i) => { %>
+                <% if (el.UserProfile) { %>
+                <tr>
+                    <td><%= i + 1 %></td>
+                    <td><%= el.UserProfile.firstName %> <%= el.UserProfile.lastName %></td>
+                    <td><%= el.email %></td>
+                    <td><%= el.role %></td>
+                    <td><a href="/admin/delete/<%= el.id %>">Delete</a></td>
+                </tr>
+                <% } %>
+            <% }) %>
+        </table>
+    </center>
+</body>
+</html>
