@@ -9,7 +9,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       User.hasOne(models.UserProfile, { foreignKey: "UserId" });
-      (User.hasMany(models.CourseUser), { foreignKey: "UserId" });
+      User.hasMany(models.CourseUser, { foreignKey: "UserId" });
+      User.belongsToMany(models.Material, { through: models.MaterialUser });
     }
   }
   User.init(
